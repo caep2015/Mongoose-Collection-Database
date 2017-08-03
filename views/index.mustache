@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Book Collection</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
+</head>
+
+<body class="container bg-info">
+  <h1>Recommended Books for Web Developers</h1>
+  <div class="add-book">
+    <h3>Add a new Book</h3>
+    <form class="form-group" action="/add" method="post">
+      <input type="text" name="title" value="" placeholder="Book Title" class="form-control">
+      <input type="text" name="author" value="" placeholder="Author's Name" class="form-control">
+      <input type="number" name="year" value="" placeholder="Year Published" class="form-control">
+      <input type="number" name="pages" value="" placeholder="Number of Pages" class="form-control">
+      <input type="number" name="isbn" value="" placeholder="ISBN" class="form-control">
+      <input type="submit" name="submitBook" value="Add Book!" class="btn btn-primary">
+    </form>
+  </div>
+
+  <section class="container">
+    <h3>View Books</h3>
+    <div class="books-list">
+      {{#model}}
+        <ul class="list-unstyled book">
+          <li>
+            <h4><a href="/book/{{_id}}">{{title}}</a></h4></li>
+          <li>By: {{author}}</li>
+          <li>Published: {{yearPublished}}</li>
+        </ul>
+      {{/model}}
+    </div>
+  </section>
+</body>
+
+</html>

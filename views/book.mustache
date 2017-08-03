@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Now viewing: {{title}}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
+</head>
+
+<body class="container bg-success">
+  <a href="/">Home</a>
+  <h1>Check out {{title}}!</h1>
+
+  <section class="container">
+    <h3>About this Book:</h3>
+    <ul class="list-unstyled book-info">
+      <li>
+        <h4 class="book-title">{{title}}</h4></li>
+      <li>By: {{author}}</li>
+      <li>Published: {{yearPublished}}</li>
+      <li>Pages: {{pages}}</li>
+      <li>ISBN: {{isbn}}</li>
+    </ul>
+    {{#synopsis}}
+      <ul class="list-unstyled book-sum">
+        <li>
+          <h4>Synopsis</h4></li>
+        <li><b>Subject: </b>{{subject}}</li>
+        <li><b>Thoughts: </b>{{review}}</li>
+        <li><b><a href="{{shopUrl}}" target="_blank">Find it online!</a></b></li>
+    {{/synopsis}}
+    </ul>
+  </section>
+  <div class="add-book">
+    <h3>Update this Book</h3>
+    <form class="form-group" action="/update/{{_id}}" method="post">
+      <input type="hidden" name="book" value="{{_id}}">
+      <input type="text" name="subject" value="" placeholder="Add the subject of this book." class="form-control">
+      <textarea name="review" rows="8" cols="80" placeholder="Your thoughts?" class="form-control"></textarea>
+      <input type="url" name="url" value="" placeholder="Add Online Store URL" class="form-control">
+      <input type="submit" name="submitBook" value="Update Book!" class="btn btn-primary">
+    </form>
+    <form class="" action="/delete/{{_id}}" method="post">
+      <input type="hidden" name="book" value="{{_id}}">
+      <input type="submit" name="delete" value="Delete Book" class="btn btn-danger">
+    </form>
+  </div>
+</body>
+
+</html>
