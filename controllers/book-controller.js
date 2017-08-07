@@ -14,15 +14,13 @@ module.exports = {
       author = req.body.author,
       yearPublished = req.body.year,
       pages = req.body.pages,
-      isbn = req.body.isbn,
-      completed = req.body.completed;
+      isbn = req.body.isbn,  
     let addBook = new Book({
       title: title,
       author: author,
       yearPublished: yearPublished,
       pages: pages,
       isbn: isbn,
-      completed: completed
     });
     addBook.save().then(function() {
       res.redirect('/');
@@ -43,7 +41,6 @@ module.exports = {
       review = req.body.review,
       shopUrl = req.body.url,
       book = req.body.book,
-      completed = req.body.completed;
 
     Book.findOne({
       _id: book
@@ -52,7 +49,6 @@ module.exports = {
       result.synopsis.subject = subject;
       result.synopsis.review = review;
       result.synopsis.shopUrl = shopUrl;
-
       result.save().then(function() {
         res.redirect('/book/' + book);
       });
