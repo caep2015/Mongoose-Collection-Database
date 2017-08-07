@@ -45,7 +45,6 @@ module.exports = {
     Book.findOne({
       _id: book
     }).then(result => {
-      result.completed = completed;
       result.synopsis.subject = subject;
       result.synopsis.review = review;
       result.synopsis.shopUrl = shopUrl;
