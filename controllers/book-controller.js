@@ -14,13 +14,13 @@ module.exports = {
       author = req.body.author,
       yearPublished = req.body.year,
       pages = req.body.pages,
-      isbn = req.body.isbn,  
+      isbn = req.body.isbn;  
     let addBook = new Book({
       title: title,
       author: author,
       yearPublished: yearPublished,
       pages: pages,
-      isbn: isbn,
+      isbn: isbn
     });
     addBook.save().then(function() {
       res.redirect('/');
@@ -40,7 +40,7 @@ module.exports = {
     let subject = req.body.subject,
       review = req.body.review,
       shopUrl = req.body.url,
-      book = req.body.book,
+      book = req.body.book;
 
     Book.findOne({
       _id: book
